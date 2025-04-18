@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio | Desenvolvedor Frontend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+      @keyframes matrix {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 1000px; }
+      }
+
+      #loading {
+        position: fixed;
+        inset: 0;
+        background: black;
+        color: #00ff9f;
+        font-family: monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 50;
+        overflow: hidden;
+      }
+
+      .matrix {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(transparent, rgba(0, 255, 128, 0.3));
+        background-size: 100% 2000px;
+        animation: matrix 5s linear infinite;
+        z-index: 0;
+      }
+
+      .loader-text {
+        z-index: 1;
+        font-size: 1.5rem;
+        text-align: center;
+        white-space: pre;
+      }
+
+      .fade-in {
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .card-hover:hover {
+        transform: scale(1.05);
+      }
+
+      .photo-frame {
+        transition: transform 0.5s, box-shadow 0.5s;
+      }
+
+      .photo-frame:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #38bdf8;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-900 text-white">
+
+    <div id="loading">
+      <div class="matrix"></div>
+      <div class="loader-text">Iniciando protocolo...\nCarregando Interface...\nAutenticando Dev...</div>
+    </div>
+
+    <header class="flex justify-between items-center p-6 bg-slate-800 shadow-md flex-wrap">
+      <h1 class="text-2xl font-bold text-cyan-400">Meu Portfólio</h1>
+      <nav class="flex gap-6 text-lg mt-4 sm:mt-0">
+        <a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a>
+        <a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a>
+        <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
+      </nav>
+    </header>
+
+    <section id="sobre" class="p-10 fade-in text-center">
+      <h2 class="text-3xl font-bold mb-4 text-cyan-400">Sobre Mim</h2>
+      <div class="flex flex-col items-center gap-6">
+        <img src="img/Foto.jpg" alt="Minha Foto" class="w-48 h-64 object-cover rounded-xl photo-frame" />
+        <p class="text-lg max-w-xl leading-relaxed">
+          Sou um <span class="text-cyan-400 font-semibold">Desenvolvedor Frontend</span> apaixonado por criar interfaces modernas, responsivas e otimizadas. Trabalho com <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>TailwindCSS</strong> e <strong>React</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="projetos" class="p-10 fade-in">
+      <h2 class="text-3xl font-bold mb-4 text-cyan-400 text-center">Projetos</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
+          <img src="img/imagem.jpg" class="rounded mb-3" alt="Projeto 1">
+          <h3 class="text-xl font-semibold mb-2">Projeto Naval Remake</h3>
+          <p>Recriação de um sistema antigo com foco em performance, responsividade e layout moderno. Utilizando React.js, CSS, Bootstrap, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play e Material UI.</p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
+          <img src="https://www.investopedia.com/thmb/MjB-107bdGDx0W6f5GkhWRwnZLw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-891014130-ad333b54b6cf46b2850aa6f17d935e7e.jpg" class="rounded mb-3" alt="Projeto 2">
+          <h3 class="text-xl font-semibold mb-2">Projeto Star Wars</h3>
+          <p>Projeto futuro com temática Star Wars, cards animados e efeitos visuais modernos. Utilizando TypeScript, tailwindcss, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play e Material UI.</p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
+          <img src="img/GeradorQRCODE.png" class="rounded mb-3" alt="Projeto 2">
+          <h3 class="text-xl font-semibold mb-2">Gerador de QR CODE</h3>
+          <p>Um gerador de QR CODE. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que joga um link ele gera um QR CODE.</p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
+          <img src="img/GeradorSenhas.png" class="rounded mb-3" alt="Projeto 2">
+          <h3 class="text-xl font-semibold mb-2">Gerador de Senhas</h3>
+          <p>Um gerador de Senhas. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que pedir, ele gera senha de acordo com quantidade de caracteres escolhidas.</p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
+          <img src="img/CalculadoraIMC.png" class="rounded mb-3" alt="Projeto 2">
+          <h3 class="text-xl font-semibold mb-2">Calculadora de IMC</h3>
+          <p>Calculadora de IMC, informe seu peso e altura e ela informará a classificação. Utilizando HTML, CSS, JavaScript, Git e GitHub</p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
+          <img src="img/SiteIphone13pro.png" class="rounded mb-3" alt="Projeto 2">
+          <h3 class="text-xl font-semibold mb-2">Site Clone do iphone13</h3>
+          <p>Site clone do iphone13 incompleto. Na parte do celulares voce pode escolher a cor para o iphone13. Utilizando HTML, CSS, JavaScript, Git e GitHub</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="p-10 fade-in text-center">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400">Contato</h2>
+      <div class="flex justify-center gap-8 text-3xl">
+        <a href="https://github.com/maycon363" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/maycon-borges-4a6022338/" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/mmayconb_p/" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://trello.com/b/3bMxVzgE/projeto-navalremake" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-trello"></i></a>
+      </div>
+    </section>
+
+    <footer class="bg-slate-800 text-center text-sm py-4 mt-10 text-slate-300">
+      &copy; 2025 Maycon Borges. Todos os direitos reservados.
+    </footer>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loading = document.getElementById('loading');
+        loading.style.transition = 'opacity 6.0s ease';
+        loading.style.opacity = '0';
+        setTimeout(() => loading.remove(), 3000);
+      });
+    </script>
+  </body>
+</html>
