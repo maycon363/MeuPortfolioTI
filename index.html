@@ -8,39 +8,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4aV7whvsbGPHoBC067OwG6ktYkpln7Sai8x9x96Fd1Rf964h_5mkF4E1K22uoPUuhsoo&usqp=CAU" type="image/png" />
     <style>
-      @keyframes matrix {
-        0% { background-position: 0 0; }
-        100% { background-position: 0 1000px; }
+       * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      body, html {
+        height: 100%;
+        background-color: black;
+        font-family: 'Courier New', monospace;
       }
 
       #loading {
         position: fixed;
         inset: 0;
-        background: black;
+        background-color: black;
         color: #00ff9f;
-        font-family: monospace;
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 50;
-        overflow: hidden;
+        flex-direction: column;
+        z-index: 9999;
       }
 
       .matrix {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(transparent, rgba(0, 255, 128, 0.3));
+        background-image: linear-gradient(transparent, rgba(0, 255, 128, 0.1));
         background-size: 100% 2000px;
         animation: matrix 5s linear infinite;
         z-index: 0;
       }
 
+      @keyframes matrix {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 1000px; }
+      }
+
       .loader-text {
+        position: relative;
         z-index: 1;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-align: center;
-        white-space: pre;
+        padding: 1rem;
+        color: #00ff9f;
+        animation: typewriter 4s steps(40) 1s 1 normal both;
+      }
+
+      @keyframes typewriter {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      .phrase {
+        opacity: 0;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+
+      @media (max-width: 600px) {
+        .loader-text {
+          font-size: 1rem;
+        }
       }
 
       .fade-in {
@@ -61,25 +95,25 @@
       }
 
       .photo-frame:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px #38bdf8;
+        transform: scale(1.00);
+        box-shadow: 0 0 20px #36acdf;
       }
+
     </style>
   </head>
   <body class="bg-slate-900 text-white">
 
     <div id="loading">
       <div class="matrix"></div>
-      <div class="loader-text px-4 text-lg">
-        Iniciando protocolo...<span class="hidden sm:inline"> </span><span class="block sm:inline">Carregando Interface...</span><span class="hidden sm:inline"> </span><span class="block sm:inline">Autenticando Dev...</span>
-      </div>
-      
+      <div class="loader-text" id="text"></div>
+      <audio id="hackerSound" autoplay loop>
+        <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_a7999df5b7.mp3" type="audio/mp3">
+      </audio>
     </div>
     
-
-    <header class="flex justify-between items-center p-6 bg-slate-800 shadow-md flex-wrap">
+    <header class="flex flex-col sm:flex-row justify-between items-center p-6 bg-slate-800 shadow-md gap-4 sm:gap-0">
       <h1 class="text-2xl font-bold text-cyan-400">Meu Portfólio</h1>
-      <nav class="flex gap-6 text-lg mt-4 sm:mt-0">
+      <nav class="flex flex-col sm:flex-row gap-4 text-lg text-center">
         <a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a>
         <a href="#especialidades" class="hover:text-cyan-400 transition">Especialidades</a>
         <a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a>
@@ -236,18 +270,50 @@
       </p>
     </section>
     
-
     <footer class="bg-slate-800 text-center text-sm py-4 mt-10 text-slate-300">
       &copy; 2025 Maycon Borges. Todos os direitos reservados.
     </footer>
 
     <script>
-      window.addEventListener('load', () => {
-        const loading = document.getElementById('loading');
-        loading.style.transition = 'opacity 6.0s ease';
-        loading.style.opacity = '0';
-        setTimeout(() => loading.remove(), 3000);
-      });
+      const desktopMessages = [
+        'Iniciando protocolo de invasão...',
+        'Decodificando firewall...',
+        'Injetando payload...',
+        'Acessando mainframe...',
+        'Autenticando Dev...',
+        'Conexão estabelecida com o sistema...'
+      ];
+    
+      const mobileMessages = [
+        'Carregando portfólio...',
+        'Preparando visual mobile...',
+        'Organizando conteúdo...',
+        'Otimizando para celular...',
+        'Quase lá...',
+        'Pronto! Bem-vindo(a)!'
+      ];
+    
+      const isMobile = window.innerWidth <= 768;
+      const messages = isMobile ? mobileMessages : desktopMessages;
+    
+      let index = 0;
+      const textElement = document.getElementById('text');
+    
+      function showNextMessage() {
+        if (index < messages.length) {
+          textElement.textContent = messages[index];
+          index++;
+          setTimeout(showNextMessage, 2500);
+        } else {
+          document.getElementById('loading').style.display = 'none';
+          document.body.style.overflow = 'auto';
+          document.documentElement.style.overflow = 'auto';
+        }
+      }
+    
+      window.onload = () => {
+        showNextMessage();
+      };
     </script>
   </body>
 </html>
