@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio | Desenvolvedor Frontend</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4aV7whvsbGPHoBC067OwG6ktYkpln7Sai8x9x96Fd1Rf964h_5mkF4E1K22uoPUuhsoo&usqp=CAU" type="image/png" />
     <style>
       @keyframes matrix {
         0% { background-position: 0 0; }
@@ -80,66 +81,163 @@
       <h1 class="text-2xl font-bold text-cyan-400">Meu Portfólio</h1>
       <nav class="flex gap-6 text-lg mt-4 sm:mt-0">
         <a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a>
+        <a href="#especialidades" class="hover:text-cyan-400 transition">Especialidades</a>
         <a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a>
         <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
       </nav>
     </header>
 
-    <section id="sobre" class="p-10 fade-in text-center">
-      <h2 class="text-3xl font-bold mb-4 text-cyan-400">Sobre Mim</h2>
-      <div class="flex flex-col items-center gap-6">
-        <img src="img/Foto.jpg" alt="Minha Foto" class="w-48 h-64 object-cover rounded-xl photo-frame" />
-        <p class="text-lg max-w-xl leading-relaxed">
-          Sou um <span class="text-cyan-400 font-semibold">Desenvolvedor Frontend</span> apaixonado por criar interfaces modernas, responsivas e otimizadas. Trabalho com <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>TailwindCSS</strong> e <strong>React</strong>.
+    <section id="sobre" class="p-10 fade-in text-center bg-gray-900 rounded-xl shadow-lg">
+      <h2 class="text-4xl font-bold mb-8 text-gray-100 tracking-wider">Sobre Mim</h2>
+      <div class="flex flex-col items-center gap-8">
+        <div class="relative w-48 h-64 overflow-hidden rounded-xl shadow-2xl transition-all duration-700 ease-in-out group">
+          <img src="img/Foto.jpg" alt="Minha Foto" class="w-full h-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-2xl group-hover:opacity-90 group-hover:brightness-125"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-transparent to-teal-500 opacity-0 group-hover:opacity-40 transition-opacity duration-700 ease-in-out"></div>
+        </div>
+        
+        <p class="text-xl max-w-3xl mx-auto leading-relaxed text-gray-300 opacity-80 transform transition-all duration-500 hover:opacity-100 hover:translate-y-2">
+          Sou um <span class="text-teal-400 font-semibold">Desenvolvedor Frontend</span> apaixonado por criar interfaces modernas, responsivas e otimizadas. Trabalho com 
+          <strong class="text-teal-400">HTML</strong>, <strong class="text-teal-400">CSS</strong>, <strong class="text-teal-400">JavaScript</strong>, 
+          <strong class="text-teal-400">TailwindCSS</strong> e <strong class="text-teal-400">React</strong>.
         </p>
       </div>
     </section>
 
-    <section id="projetos" class="p-10 fade-in">
-      <h2 class="text-3xl font-bold mb-4 text-cyan-400 text-center">Projetos</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
-          <img src="img/imagem.jpg" class="rounded mb-3" alt="Projeto 1">
-          <h3 class="text-xl font-semibold mb-2">Projeto Naval Remake</h3>
-          <p>Recriação de um sistema antigo com foco em performance, responsividade e layout moderno. Utilizando React.js, CSS, Bootstrap, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play, design UX/UI e Material UI.</p>
+    <section id="especialidades" class="p-10 bg-gray-800 text-center fade-in">
+      <h2 class="text-4xl font-bold mb-8 text-cyan-400 tracking-wider">Minhas Especialidades</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-16 h-16 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 3m0 0l3-3m-3 3v12a2 2 0 002 2h10a2 2 0 002-2V9l-3 3m-3-3l-3 3m3-3v12a2 2 0 01-2 2H6a2 2 0 01-2-2V9l3 3m0 0l3-3" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Desenvolvimento Frontend</h3>
+          <p class="text-gray-300">Experiência na criação de interfaces modernas e responsivas utilizando HTML, CSS, JavaScript, React e TailwindCSS.</p>
+        </div>  
+        <div class="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-16 h-16 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 3m0 0l3-3m-3 3v12a2 2 0 002 2h10a2 2 0 002-2V9l-3 3m-3-3l-3 3m3-3v12a2 2 0 01-2 2H6a2 2 0 01-2-2V9l3 3m0 0l3-3" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Desenvolvimento de APIs</h3>
+          <p class="text-gray-300">Criação de APIs com integração ao TMDB para buscar informações de filmes e séries. Além disso, implementei funcionalidades de armazenamento local utilizando LocalStorage para persistência de dados no lado do cliente.</p>
+        </div>    
+        <div class="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-16 h-16 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0-6l-9 5v6a2 2 0 002 2h14a2 2 0 002-2v-6l-9-5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Banco de Dados</h3>
+          <p class="text-gray-300">Conhecimento em bancos de dados relacionais e não relacionais, com habilidades em SQL, MongoDB e Firebase.</p>
         </div>
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
-          <img src="https://www.investopedia.com/thmb/MjB-107bdGDx0W6f5GkhWRwnZLw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-891014130-ad333b54b6cf46b2850aa6f17d935e7e.jpg" class="rounded mb-3" alt="Projeto 2">
-          <h3 class="text-xl font-semibold mb-2">Projeto Star Wars</h3>
-          <p>Projeto futuro com temática Star Wars, cards animados e efeitos visuais modernos. Utilizando TypeScript, tailwindcss, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play, design UX/UI e Material UI.</p>
+        <div class="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-16 h-16 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Git e GitHub</h3>
+          <p class="text-gray-300">Domínio do versionamento de código utilizando Git, integração contínua e colaboração em projetos open-source no GitHub.</p>
         </div>
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
-          <img src="img/GeradorQRCODE.png" class="rounded mb-3" alt="Projeto 2">
-          <h3 class="text-xl font-semibold mb-2">Gerador de QR CODE</h3>
-          <p>Um gerador de QR CODE. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que joga um link ele gera um QR CODE.</p>
+        <div class="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-16 h-16 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">UX/UI Design</h3>
+          <p class="text-gray-300">Experiência em criar interfaces intuitivas e agradáveis ao usuário, com foco em design responsivo e acessível.</p>
         </div>
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
-          <img src="img/GeradorSenhas.png" class="rounded mb-3" alt="Projeto 2">
-          <h3 class="text-xl font-semibold mb-2">Gerador de Senhas</h3>
-          <p>Um gerador de Senhas. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que pedir, ele gera senha de acordo com quantidade de caracteres escolhidas.</p>
-        </div>
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
-          <img src="img/CalculadoraIMC.png" class="rounded mb-3" alt="Projeto 2">
-          <h3 class="text-xl font-semibold mb-2">Calculadora de IMC</h3>
-          <p>Calculadora de IMC, informe seu peso e altura e ela informará a classificação. Utilizando HTML, CSS, JavaScript, Git e GitHub</p>
-        </div>
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md transition card-hover">
-          <img src="img/SiteIphone13pro.png" class="rounded mb-3" alt="Projeto 2">
-          <h3 class="text-xl font-semibold mb-2">Site Clone do iphone13</h3>
-          <p>Site clone do iphone13 incompleto. Na parte do celulares voce pode escolher a cor para o iphone13. Utilizando HTML, CSS, JavaScript, Git e GitHub</p>
+        <div class="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-16 h-16 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M3 12h18M3 19h18" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Testes e Debugging</h3>
+          <p class="text-gray-300">Habilidade em testes unitários, integração e debugging para garantir a qualidade do código e o bom funcionamento das aplicações.</p>
         </div>
       </div>
-    </section>
+    </section>        
+       
+    <section id="projetos" class="p-10 fade-in bg-gray-900">
+      <h2 class="text-4xl font-bold mb-8 text-cyan-400 text-center tracking-wider">Projetos</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:border-cyan-400 hover:bg-slate-700">
+          <img src="img/imagem.jpg" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 1">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Projeto Naval Remake</h3>
+          <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            Recriação de um sistema antigo com foco em performance, responsividade e layout moderno. Utilizando React.js, CSS, Bootstrap, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play, design UX/UI e Material UI.
+          </p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:border-cyan-400 hover:bg-slate-700">
+          <img src="https://www.investopedia.com/thmb/MjB-107bdGDx0W6f5GkhWRwnZLw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-891014130-ad333b54b6cf46b2850aa6f17d935e7e.jpg" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 2">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Projeto Star Wars</h3>
+          <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            Projeto futuro com temática Star Wars, cards animados e efeitos visuais modernos. Utilizando TypeScript, tailwindcss, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play, design UX/UI e Material UI.
+          </p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:border-cyan-400 hover:bg-slate-700">
+          <img src="img/GeradorQRCODE.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 3">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Gerador de QR CODE</h3>
+          <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            Um gerador de QR CODE. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que joga um link ele gera um QR CODE.
+          </p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:border-cyan-400 hover:bg-slate-700">
+          <img src="img/GeradorSenhas.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 4">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Gerador de Senhas</h3>
+          <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            Um gerador de Senhas. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que pedir, ele gera senha de acordo com quantidade de caracteres escolhidas.
+          </p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:border-cyan-400 hover:bg-slate-700">
+          <img src="img/CalculadoraIMC.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 5">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Calculadora de IMC</h3>
+          <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            Calculadora de IMC, informe seu peso e altura e ela informará a classificação. Utilizando HTML, CSS, JavaScript, Git e GitHub.
+          </p>
+        </div>
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:border-cyan-400 hover:bg-slate-700">
+          <img src="img/SiteIphone13pro.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 6">
+          <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Site Clone do iphone13</h3>
+          <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            Site clone do iphone13 incompleto. Na parte do celulares você pode escolher a cor para o iphone13. Utilizando HTML, CSS, JavaScript, Git e GitHub.
+          </p>
+        </div>
+      </div>
+    </section>    
 
-    <section id="contato" class="p-10 fade-in text-center">
+    <section id="contato" class="p-10 fade-in text-center bg-gray-800">
       <h2 class="text-3xl font-bold mb-6 text-cyan-400">Contato</h2>
-      <div class="flex justify-center gap-8 text-3xl">
-        <a href="https://github.com/maycon363" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/maycon-borges-4a6022338/" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/mmayconb_p/" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-instagram"></i></a>
-        <a href="https://trello.com/b/3bMxVzgE/projeto-navalremake" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-trello"></i></a>
+      <p class="text-gray-300 mb-6 text-lg max-w-xl mx-auto">
+        Quer trocar uma ideia sobre projetos, colaborações ou só bater um papo? Me chama em alguma das redes abaixo!
+      </p>
+      <div class="flex flex-wrap justify-center gap-8 text-3xl mb-6">
+        <a href="https://github.com/maycon363" target="_blank" class="hover:text-cyan-400 transition" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/maycon-borges-4a6022338/" target="_blank" class="hover:text-cyan-400 transition" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/mmayconb_p/" target="_blank" class="hover:text-cyan-400 transition" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://trello.com/b/3bMxVzgE/projeto-navalremake" target="_blank" class="hover:text-cyan-400 transition" aria-label="Trello">
+          <i class="fab fa-trello"></i>
+        </a>
       </div>
+      <p class="text-gray-400 text-sm">
+        Ou, se preferir, envie um e-mail para:
+        <a href="mailto:mayconborges2025@gmail.com?subject=Contato%20via%20Portfólio" class="text-cyan-400 hover:underline">mayconborges2025@gmail.com</a>
+      </p>
+      
+      </p>
     </section>
+    
 
     <footer class="bg-slate-800 text-center text-sm py-4 mt-10 text-slate-300">
       &copy; 2025 Maycon Borges. Todos os direitos reservados.
