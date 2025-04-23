@@ -32,51 +32,14 @@
         z-index: 9999;
       }
 
-      .matrix {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: black; 
-        color: #00ff9f; 
-        font-family: 'Courier New', monospace;
-        font-size: 1.5rem;
-        line-height: 1.8rem;
-        z-index: 0;
-        pointer-events: none; 
-        overflow: hidden;
-        animation: matrix 1.5s linear infinite;
-      }
-
-      @keyframes matrix {
-        0% {
-          background-image: none;
-        }
-        10% {
-          background-image: linear-gradient(to top, rgba(0, 255, 128, 0.1) 10%, transparent 90%);
-        }
-        50% {
-          background-image: linear-gradient(to top, rgba(0, 255, 128, 0.3) 10%, transparent 90%);
-        }
-        100% {
-          background-image: linear-gradient(to top, rgba(0, 255, 128, 0.1) 10%, transparent 90%);
-        }
-      }
-
-      .matrix::after {
-        content: " ";
+      #matrixCanvas {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: repeating-linear-gradient(
-          to bottom,
-          rgba(0, 255, 128, 0.1) 0px,
-          rgba(0, 255, 128, 0.1) 20px,
-          transparent 20px,
-          transparent 40px
-        );
-        animation: stream 0.5s steps(10) infinite;
+        z-index: 0;
+        background: black;
       }
 
       @keyframes stream {
@@ -84,6 +47,19 @@
         100% { transform: translateY(100%); }
       }
 
+      .loader-text::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Escurecer mais o fundo para destacar */
+        z-index: -1;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 255, 159, 0.7), /* Brilho suave ao redor do fundo */
+                    0 0 25px rgba(0, 255, 159, 0.5); /* Adicionando brilho para dar foco */
+      }
 
       .loader-text {
         position: relative;
@@ -91,24 +67,19 @@
         font-size: 1.5rem; 
         text-align: center;
         padding: 1rem;
-        color: #00ff9f; 
+        color: #00ff9f; /* Verde brilhante */
         font-weight: bold;
         letter-spacing: 2px; 
         text-shadow: 
-          0 0 5px rgba(0, 255, 159, 0.7), 
-          0 0 10px rgba(0, 255, 159, 0.6), 
-          0 0 15px rgba(0, 255, 159, 0.5), 
-          0 0 20px rgba(0, 255, 159, 0.4), 
-          0 0 25px rgba(0, 255, 159, 0.3); 
-        
+          0 0 5px rgba(0, 255, 159, 0.8),  /* Sombra mais intensa */
+          0 0 10px rgba(0, 255, 159, 0.7), 
+          0 0 15px rgba(0, 255, 159, 0.6), 
+          0 0 20px rgba(0, 255, 159, 0.5), 
+          0 0 25px rgba(0, 255, 159, 0.4); 
+
         animation: 
           typewriter 4s steps(40) 1s 1 normal both, 
           glitch 1s infinite; 
-      }
-
-      @keyframes typewriter {
-        from { width: 0; }
-        to { width: 100%; }
       }
 
       @keyframes glitch {
@@ -118,19 +89,19 @@
         }
         20% {
           transform: translate(-2px, -2px);
-          opacity: 0.9;
+          opacity: 0.8;
         }
         40% {
           transform: translate(2px, 2px);
-          opacity: 0.8;
+          opacity: 0.7;
         }
         60% {
           transform: translate(-2px, -2px);
-          opacity: 0.9;
+          opacity: 0.8;
         }
         80% {
           transform: translate(2px, 2px);
-          opacity: 0.7;
+          opacity: 0.9;
         }
         100% {
           transform: translate(0, 0);
@@ -143,18 +114,19 @@
         to { width: 100% }
       }
 
+
       .phrase {
         opacity: 0;
         animation: fadeIn 1s ease forwards;
       }
 
       @keyframes fadeIn {
-        to { opacity: 1; }
+        to { opacity: 3; }
       }
 
       @media (max-width: 600px) {
         .loader-text {
-          font-size: 1rem;
+          font-size: 2rem;
         }
       }
 
@@ -180,11 +152,18 @@
         box-shadow: 0 0 20px #36acdf;
       }
 
+      @media (hover: none) {
+        .card-touch-effect {
+          transform: scale(1.03);
+          box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.2), 0 4px 6px -4px rgba(8, 145, 178, 0.2);
+        }
+      }
+
     </style>
   </head>
   <body class="bg-slate-900 text-white">
     <div id="loading">
-      <div class="matrix"></div>
+      <canvas id="matrixCanvas"></canvas>
       <div class="loader-text" id="text"></div>
     </div>
     
@@ -220,7 +199,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
     
         <!-- Desenvolvimento Frontend -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
           <div class="flex justify-center mb-4">
             <i class="fas fa-laptop-code text-cyan-400 text-5xl"></i>
           </div>
@@ -229,7 +208,7 @@
         </div>
     
         <!-- Desenvolvimento de APIs -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
           <div class="flex justify-center mb-4">
             <i class="fas fa-server text-cyan-400 text-5xl"></i>
           </div>
@@ -238,7 +217,7 @@
         </div>
     
         <!-- Banco de Dados -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
           <div class="flex justify-center mb-4">
             <i class="fas fa-database text-cyan-400 text-5xl"></i>
           </div>
@@ -247,7 +226,7 @@
         </div>
     
         <!-- Git e GitHub -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
           <div class="flex justify-center mb-4">
             <i class="fab fa-git-alt text-cyan-400 text-5xl"></i>
           </div>
@@ -256,7 +235,7 @@
         </div>
     
         <!-- UX/UI Design -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
           <div class="flex justify-center mb-4">
             <i class="fas fa-pencil-ruler text-cyan-400 text-5xl"></i>
           </div>
@@ -265,7 +244,7 @@
         </div>
     
         <!-- Testes e Debugging -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300">
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
           <div class="flex justify-center mb-4">
             <i class="fas fa-bug text-cyan-400 text-5xl"></i>
           </div>
@@ -366,6 +345,39 @@
     <footer class="bg-slate-800 text-center text-sm py-4 mt-10 text-slate-300">
       &copy; 2025 Maycon Borges. Todos os direitos reservados.
     </footer>
+
+    <script>
+      const canvas = document.getElementById('matrixCanvas');
+      const ctx = canvas.getContext('2d');
+    
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    
+      const letters = "アァイィウヴエェオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const fontSize = 16;
+      const columns = canvas.width / fontSize;
+      const drops = Array.from({ length: columns }).fill(1);
+    
+      function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+        ctx.fillStyle = "#00ff9f";
+        ctx.font = fontSize + "px Courier New";
+    
+        for (let i = 0; i < drops.length; i++) {
+          const text = letters.charAt(Math.floor(Math.random() * letters.length));
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+    
+      setInterval(draw, 33);
+    </script>
 
     <script>
       const desktopMessages = [
