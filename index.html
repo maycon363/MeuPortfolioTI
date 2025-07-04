@@ -1,363 +1,452 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio | Desenvolvedor Frontend</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4aV7whvsbGPHoBC067OwG6ktYkpln7Sai8x9x96Fd1Rf964h_5mkF4E1K22uoPUuhsoo&usqp=CAU" type="image/png" />
-    <style>
-       * {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio | Desenvolvedor Frontend</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4aV7whvsbGPHoBC067OwG6ktYkpln7Sai8x9x96Fd1Rf964h_5mkF4E1K22uoPUuhsoo&usqp=CAU"
+    type="image/png" />
+  <style>
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      }
+    }
 
-      body, html {
-        height: 100%;
-        background-color: black;
-        font-family: 'Courier New', monospace;
-        overflow-x: hidden;
-      }
+    html {
+      scroll-behavior: smooth;
+    }
 
-      @keyframes fadeInLeft {
+    body {
+      background-color: black;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeInLeft {
       from {
         opacity: 0;
         transform: translateX(-30px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
       }
     }
 
-      @keyframes fadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .animate-fade-in-left {
-        animation: fadeInLeft 1s ease-out both;
-      }
-
-      .animate-fade-in-right {
-        animation: fadeInRight 1s ease-out both;
-      }
-
-
-      @keyframes stream {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(100%); }
-      }
-
-      .loader-text::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9); /* Escurecer mais o fundo para destacar */
-        z-index: -1;
-        border-radius: 5px;
-        box-shadow: 0 0 15px rgba(0, 255, 159, 0.7), /* Brilho suave ao redor do fundo */
-                    0 0 25px rgba(0, 255, 159, 0.5); /* Adicionando brilho para dar foco */
-      }
-
-      .loader-text {
-        position: relative;
-        z-index: 1;
-        font-size: 1.5rem; 
-        text-align: center;
-        padding: 1rem;
-        color: #00ff9f; /* Verde brilhante */
-        font-weight: bold;
-        letter-spacing: 2px; 
-        text-shadow: 
-          0 0 5px rgba(0, 255, 159, 0.8),  /* Sombra mais intensa */
-          0 0 10px rgba(0, 255, 159, 0.7), 
-          0 0 15px rgba(0, 255, 159, 0.6), 
-          0 0 20px rgba(0, 255, 159, 0.5), 
-          0 0 25px rgba(0, 255, 159, 0.4); 
-
-        animation: 
-          typewriter 4s steps(40) 1s 1 normal both, 
-          glitch 1s infinite; 
-      }
-
-      @keyframes glitch {
-        0% {
-          transform: translate(0, 0);
-          opacity: 1;
-        }
-        20% {
-          transform: translate(-2px, -2px);
-          opacity: 0.8;
-        }
-        40% {
-          transform: translate(2px, 2px);
-          opacity: 0.7;
-        }
-        60% {
-          transform: translate(-2px, -2px);
-          opacity: 0.8;
-        }
-        80% {
-          transform: translate(2px, 2px);
-          opacity: 0.9;
-        }
-        100% {
-          transform: translate(0, 0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes typewriter {
-        from { width: 0 }
-        to { width: 100% }
-      }
-
-
-      @keyframes rotateY {
-        0% {
-          transform: rotateY(0deg);
-        }
-        100% {
-          transform: rotateY(360deg);
-        }
-      }
-
-      .rotate-animation {
-        animation: rotateY 15s linear infinite;
-      }
-
-
-      .phrase {
+    @keyframes fadeInRight {
+      from {
         opacity: 0;
-        animation: fadeIn 1s ease forwards;
+        transform: translateX(30px);
       }
 
-      @keyframes fadeIn {
-        to { opacity: 3; }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-fade-in-left {
+      animation: fadeInLeft 1s ease-out both;
+    }
+
+    .animate-fade-in-right {
+      animation: fadeInRight 1s ease-out both;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
       }
 
-      @media (max-width: 600px) {
-        .loader-text {
-          font-size: 2rem;
-        }
+      20% {
+        transform: translate(-2px, -2px);
+        opacity: 0.8;
       }
 
-      .fade-in {
-        animation: fadeIn 1.5s ease-in-out;
+      40% {
+        transform: translate(2px, 2px);
+        opacity: 0.7;
       }
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+      60% {
+        transform: translate(-2px, -2px);
+        opacity: 0.8;
       }
 
-      .card-hover:hover {
-        transform: scale(1.05);
+      80% {
+        transform: translate(2px, 2px);
+        opacity: 0.9;
       }
 
+      100% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+    }
 
-      @media (hover: none) {
-        .card-touch-effect {
-          transform: scale(1.03);
-          box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.2), 0 4px 6px -4px rgba(8, 145, 178, 0.2);
-        }
+    @keyframes typewriter {
+      from {
+        width: 0;
       }
 
-    </style>
-  </head>
-  <body class="bg-slate-900 text-white">
-    <header class="flex flex-col sm:flex-row justify-between items-center p-6 bg-slate-800 shadow-md gap-4 sm:gap-0">
-      <h1 class="text-2xl font-bold text-cyan-400">Meu Portfólio</h1>
-      <nav class="flex flex-col sm:flex-row gap-4 text-lg text-center">
-        <a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a>
-        <a href="#especialidades" class="hover:text-cyan-400 transition">Especialidades</a>
-        <a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a>
-        <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
-      </nav>
-    </header>
+      to {
+        width: 100%;
+      }
+    }
 
-    <section id="sobre-contato" class="p-10 bg-gray-900 rounded-xl shadow-lg fade-in w-full">
+    .loader-text {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+      color: #00ff9f;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px rgba(0, 255, 159, 0.8), 0 0 10px rgba(0, 255, 159, 0.7), 0 0 15px rgba(0, 255, 159, 0.6),
+        0 0 20px rgba(0, 255, 159, 0.5), 0 0 25px rgba(0, 255, 159, 0.4);
+      animation: typewriter 4s steps(40) 1s 1 normal both, glitch 1s infinite;
+    }
+
+    @keyframes rotateY {
+      0% {
+        transform: rotateY(0deg);
+      }
+
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .rotate-animation {
+      animation: rotateY 15s linear infinite;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-hover:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .loader-text {
+        font-size: 2rem;
+      }
+    }
+
+    @media (hover: none) {
+      .card-touch-effect {
+        transform: scale(1.03);
+        box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.2), 0 4px 6px -4px rgba(8, 145, 178, 0.2);
+      }
+    }
+
+    .alert-custom {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      text-align: center;
+      animation: fadeOut 3s forwards;
+    }
+
+    @keyframes fadeOut {
+
+      0%,
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+      }
+    }
+
+    .alert-custom {
+      max-width: 90vw;
+      width: fit-content;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-white">
+  <header
+    class="flex flex-col sm:flex-row justify-between items-center p-6 bg-slate-800 shadow-md gap-4 sm:gap-0 sticky top-0 z-50">
+    <h1 class="text-2xl font-bold text-cyan-400">Meu Portfólio</h1>
+    <nav class="flex flex-col sm:flex-row gap-4 text-lg text-center" aria-label="Menu principal">
+      <a href="#sobre-contato" class="hover:text-cyan-400 transition">Sobre</a>
+      <a href="#especialidades" class="hover:text-cyan-400 transition">Especialidades</a>
+      <a href="#certificado" class="hover:text-cyan-400 transition">Certificados</a>
+      <a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a>    
+      <a href="#mensagem" class="hover:text-cyan-400 transition">Envie uma Mensagem </a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre-contato" class="p-10 bg-gray-900 rounded-xl shadow-lg fade-in w-full max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row items-center md:items-start justify-between w-full px-4 md:px-10">
-    
-        <!-- Sobre Mim -->
-        <div class="flex flex-col items-center md:items-start md:w-1/2 max-w-md md:max-w-[45%] mb-10 md:mb-0">
+
+        <article class="flex flex-col items-center md:items-start md:w-1/2 max-w-md md:max-w-[45%] mb-10 md:mb-0"
+          aria-label="Sobre mim">
           <h2 class="text-4xl font-bold mb-6 tracking-wider text-cyan-400 text-center md:text-left">Sobre Mim</h2>
           <div class="relative w-48 h-48 overflow-hidden rounded-full shadow-2xl rotate-animation mb-6">
-            <img src="img/Foto.jpg" alt="Minha Foto" class="w-full h-full object-cover" />
+            <img src="img/Foto.jpg" alt="Foto de Maycon Borges" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <p class="text-xl leading-relaxed text-gray-300 opacity-80 hover:opacity-100 hover:translate-y-2 transition-transform duration-500 text-center md:text-left">
-            Sou um <span class="text-teal-400 font-semibold">Desenvolvedor Frontend</span> apaixonado por criar interfaces modernas, responsivas e otimizadas. Trabalho com 
-            <strong class="text-teal-400">HTML</strong>, <strong class="text-teal-400">CSS</strong>, <strong class="text-teal-400">JavaScript</strong>, 
+          <p
+            class="text-xl leading-relaxed text-gray-300 opacity-80 hover:opacity-100 hover:translate-y-2 transition-transform duration-500 text-center md:text-left">
+            Sou um <span class="text-teal-400 font-semibold">Desenvolvedor Frontend</span> apaixonado por criar
+            interfaces
+            modernas, responsivas e otimizadas. Trabalho com
+            <strong class="text-teal-400">HTML</strong>, <strong class="text-teal-400">CSS</strong>, <strong
+              class="text-teal-400">JavaScript</strong>,
             <strong class="text-teal-400">TailwindCSS</strong> e <strong class="text-teal-400">React</strong>.
           </p>
-        </div>
-    
-        <!-- Contato -->
-        <div class="flex flex-col items-center md:items-end md:w-1/2 max-w-md md:max-w-[45%]">
+        </article>
+
+        <aside class="flex flex-col items-center md:items-end md:w-1/2 max-w-md md:max-w-[45%]" aria-label="Contatos">
           <h3 class="text-3xl font-bold mb-6 text-cyan-400 text-center md:text-right">Contatos</h3>
           <p class="text-gray-300 mb-6 text-lg text-center md:text-right max-w-sm">
             Quer trocar uma ideia sobre projetos, colaborações ou só bater um papo? Me chama em alguma das redes abaixo!
           </p>
-          <div class="flex flex-wrap justify-center md:justify-end gap-8 text-3xl mb-6">
-            <a href="https://github.com/maycon363" target="_blank" class="hover:text-cyan-400 transition" aria-label="GitHub">
+          <div class="flex flex-wrap justify-center md:justify-end gap-8 text-3xl mb-6" role="list">
+            <a href="https://github.com/maycon363" target="_blank" class="hover:text-cyan-400 transition"
+              aria-label="GitHub">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/maycon-borges-4a6022338/" target="_blank" class="hover:text-cyan-400 transition" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/maycon-borges-4a6022338/" target="_blank"
+              class="hover:text-cyan-400 transition" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://www.instagram.com/mmayconb_p/" target="_blank" class="hover:text-cyan-400 transition" aria-label="Instagram">
+            <a href="https://www.instagram.com/mmayconb_p/" target="_blank" class="hover:text-cyan-400 transition"
+              aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://trello.com/b/3bMxVzgE/projeto-navalremake" target="_blank" class="hover:text-cyan-400 transition" aria-label="Trello">
+            <a href="https://trello.com/b/3bMxVzgE/projeto-navalremake" target="_blank"
+              class="hover:text-cyan-400 transition" aria-label="Trello">
               <i class="fab fa-trello"></i>
             </a>
           </div>
           <p class="text-gray-400 text-sm text-center md:text-right max-w-sm">
             Ou, se preferir, envie um e-mail para:<br />
-            <a href="mailto:mayconborges2025@gmail.com?subject=Contato%20via%20Portfólio" class="text-cyan-400 hover:underline">
-              mayconborges2025@gmail.com
-            </a>
+            <a href="mailto:mayconborges2025@gmail.com?subject=Contato%20via%20Portfólio"
+              class="text-cyan-400 hover:underline">mayconborges2025@gmail.com</a>
           </p>
-        </div>
-    
+        </aside>
       </div>
     </section>
-      
-    <section id="especialidades" class="p-10 bg-gray-900 text-center fade-in">
-      <h2 class="text-3xl font-bold mb-12 text-cyan-400 uppercase break-words text-center w-full max-w-[90%] mx-auto px-4">
+
+    <section id="especialidades"
+      class="p-10 bg-gray-900 text-center fade-in max-w-7xl mx-auto mt-10 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-12 text-cyan-400 uppercase break-words max-w-[90%] mx-auto px-4">
         Minhas Especialidades
       </h2>
-    
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        <!-- Desenvolvimento Frontend -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4 max-w-6xl mx-auto">
+        <article
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect"
+          role="listitem">
           <div class="flex justify-center mb-4">
             <i class="fas fa-laptop-code text-cyan-400 text-5xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-white mb-2 tracking-wide">Desenvolvimento Frontend</h3>
           <p class="text-gray-300">Interfaces modernas e responsivas com HTML, CSS, JavaScript, React e TailwindCSS.</p>
-        </div>
-    
-        <!-- Desenvolvimento de APIs -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
+        </article>
+
+        <article
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect"
+          role="listitem">
           <div class="flex justify-center mb-4">
             <i class="fas fa-server text-cyan-400 text-5xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-white mb-2 tracking-wide">Desenvolvimento de APIs</h3>
-          <p class="text-gray-300">Criação de APIs com integração ao TMDB e uso de LocalStorage para persistência de dados.</p>
-        </div>
-    
-        <!-- Banco de Dados -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
+          <p class="text-gray-300">
+            Criação de APIs com integração ao TMDB e uso de LocalStorage para persistência de dados.
+          </p>
+        </article>
+
+        <article
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect"
+          role="listitem">
           <div class="flex justify-center mb-4">
             <i class="fas fa-database text-cyan-400 text-5xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-white mb-2 tracking-wide">Banco de Dados</h3>
-          <p class="text-gray-300">Experiência com SQL, MongoDB e Firebase, armazenando e manipulando dados de forma eficiente.</p>
-        </div>
-    
-        <!-- Git e GitHub -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
+          <p class="text-gray-300">
+            Experiência com SQL, MongoDB e Firebase, armazenando e manipulando dados de forma eficiente.
+          </p>
+        </article>
+
+        <article
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect"
+          role="listitem">
           <div class="flex justify-center mb-4">
             <i class="fab fa-git-alt text-cyan-400 text-5xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-white mb-2 tracking-wide">Git e GitHub</h3>
           <p class="text-gray-300">Controle de versão, branches e colaboração em projetos com Git e GitHub.</p>
-        </div>
-    
-        <!-- UX/UI Design -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
+        </article>
+
+        <article
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect"
+          role="listitem">
           <div class="flex justify-center mb-4">
             <i class="fas fa-pencil-ruler text-cyan-400 text-5xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-white mb-2 tracking-wide">UX/UI Design</h3>
-          <p class="text-gray-300">Design intuitivo, responsivo e centrado no usuário para melhor experiência visual e funcional.</p>
-        </div>
-    
-        <!-- Testes e Debugging -->
-        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect">
+          <p class="text-gray-300">
+            Design intuitivo, responsivo e centrado no usuário para melhor experiência visual e funcional.
+          </p>
+        </article>
+
+        <article
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 card-touch-effect"
+          role="listitem">
           <div class="flex justify-center mb-4">
             <i class="fas fa-bug text-cyan-400 text-5xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-white mb-2 tracking-wide">Testes e Debugging</h3>
-          <p class="text-gray-300">Testes unitários e de integração, além de técnicas eficazes de debugging.</p>
-        </div>
-    
+          <p class="text-gray-300">
+            Testes unitários e de integração, além de técnicas eficazes de debugging.
+          </p>
+        </article>
       </div>
     </section>
-       
-    <section id="projetos" class="p-10 fade-in bg-gray-900">
-      <h2 class="text-4xl font-bold mb-8 text-cyan-400 text-center tracking-wider">Projetos</h2>     
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <a href="https://maycon363.github.io/meu-projeto-react/" target="_blank" class="block">
-          <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
-            md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
-            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">
-            <img src="img/projetofilmese.jpg" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 3">
-            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Projeto de Filmes e Séries</h3>
+    <section id="certificado" class="p-10 bg-gray-900 text-center fade-in max-w-7xl mx-auto mt-10 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-12 text-cyan-400 uppercase">Certificados</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 max-w-6xl mx-auto">
+
+        <div
+          class="bg-slate-800 p-6 rounded-2xl shadow-lg flex flex-col items-center gap-4 text-center hover:shadow-cyan-500/20 transition-all duration-300">
+          <img src="https://cdn.worldvectorlogo.com/logos/udemy-2.svg" alt="Udemy" class="h-12 mx-auto mb-4">
+          <h3 class="text-xl font-semibold text-white">Curso: HTML5, CSS3 e JavaScript</h3>
+          <p class="text-gray-300">Emitido pela Udemy</p>
+          <a href="https://www.udemy.com/certificate/UC-147c574e-b26f-47bf-b855-0e91ce794f3e/" target="_blank"
+            class="bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded shadow transition">
+            Ver Certificado
+          </a>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="projetos" class="p-10 fade-in bg-gray-900 max-w-7xl mx-auto mt-10 rounded-xl shadow-lg">
+      <h2 class="text-4xl font-bold mb-8 text-cyan-400 text-center tracking-wider">Projetos</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-6xl mx-auto">
+        <a href="https://maycon363.github.io/meu-projeto-react/" target="_blank" class="block group"
+          aria-label="Projeto de Filmes e Séries">
+          <div
+            class="bg-slate-800 p-6 rounded-2xl shadow-lg transition-all duration-300 scale-[1.03] md:scale-100 md:hover:scale-[1.03] hover:shadow-cyan-500/20 md:hover:shadow-cyan-500/20">
+            <img src="img/seriesefilmes.jpg"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+              alt="Projeto de Filmes e Séries - Tela do aplicativo" loading="lazy" />
+            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
+              Projeto de Filmes e Séries
+            </h3>
             <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
-              melhorias importantes na aplicação de lançamentos de filmes, desenvolvida em React, node.js, CSS, Bootstrap, Git, GitHub, tailwindcss e bibliotecas como React-Bootstrap, React Router com consumo API pública do TMDB.
-            </p>    
+              melhorias importantes na aplicação de lançamentos de filmes, desenvolvida em React, node.js, CSS,
+              Bootstrap,
+              Git, GitHub, tailwindcss e bibliotecas como React-Bootstrap, React-router-dom, Sweetalert, React-icons e
+              React-hook-form.
+            </p>
           </div>
         </a>
-        
-        <div onclick="mostrarMensagem()" class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
-          md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
-          scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">
-            <img src="img/imagem.jpg" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 1">
-            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Projeto Naval Remake</h3>
+
+        <a href="https://maycon363.github.io/projeto-navalremake/" target="_blank" class="block group"
+          aria-label="Projeto Naval Remake">
+          <div
+            class="bg-slate-800 p-6 rounded-2xl shadow-lg transition-all duration-300 scale-[1.03] md:scale-100 md:hover:scale-[1.03] hover:shadow-cyan-500/20 md:hover:shadow-cyan-500/20">
+            <img src="img/projetonaval.png" alt="Projeto Naval Remake"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+              loading="lazy" />
+            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
+              Projeto Naval Remake
+            </h3>
             <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
-              Recriação de um sistema antigo com foco em performance, responsividade e layout moderno. Utilizando React.js, CSS, Bootstrap, Git, GitHub, Node.js e bibliotecas como SweetAlert, React Router, React Play, design UX/UI e Material UI.
-            </p>         
-        </div>
+              Projeto naval com React, TS, Axios, TypeScript, TailwindCSS, React-router-dom, context API, framer-motion
+              e outras bibliotecas.
+            </p>
+          </div>
+        </a>
 
         <a href="https://maycon363.github.io/Projeto-Star-Wars/" target="_blank" class="block">
           <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
                       md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
                       scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg cursor-pointer">
-            <img src="img/StarWarsP.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 2">
-            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Projeto Star Wars</h3>
+            <img src="img/StarWarsP.png"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
+              alt="Projeto 2">
+            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
+              Projeto Star Wars</h3>
             <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
-              Projeto futuro com temática Star Wars, cards animados e efeitos visuais modernos. Utilizando TypeScript, tailwindcss, Git, GitHub, Vite e bibliotecas como SweetAlert 2, React Router, design UX/UI e Material UI.
+              Projeto futuro com temática Star Wars, cards animados e efeitos visuais modernos. Utilizando TypeScript,
+              tailwindcss, Git, GitHub, Vite e bibliotecas como SweetAlert 2, React Router, design UX/UI e Material UI.
             </p>
           </div>
         </a>
 
-        <a href="https://maycon363.github.io/GeradorQR-Code/" target="_blank" class="block">   
+        <a href="https://maycon363.github.io/GeradorQR-Code/" target="_blank" class="block">
           <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
             md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
-            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">    
-            <img src="img/GeradorQRCODE.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 3">
-            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Gerador de QR CODE</h3>
+            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">
+            <img src="img/GeradorQRCODE.png"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
+              alt="Projeto 3">
+            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
+              Gerador de QR CODE</h3>
             <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
-              Um gerador de QR CODE. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que joga um link ele gera um QR CODE.
-            </p>             
+              Um gerador de QR CODE. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que joga um link ele gera um
+              QR CODE.
+            </p>
           </div>
         </a>
 
-        <a href="https://maycon363.github.io/gerador-senhas/" target="_blank" class="block"> 
+        <a href="https://maycon363.github.io/gerador-senhas/" target="_blank" class="block">
           <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
             md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
-            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">            
-              <img src="img/GeradorSenhas.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 4">
-              <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Gerador de Senhas</h3>
-              <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
-                Um gerador de Senhas. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que pedir, ele gera senha de acordo com quantidade de caracteres escolhidas.
-              </p>            
+            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">
+            <img src="img/GeradorSenhas.png"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
+              alt="Projeto 4">
+            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
+              Gerador de Senhas</h3>
+            <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+              Um gerador de Senhas. Utilizando HTML, CSS, JavaScript, Git e GitHub. Assim que pedir, ele gera senha de
+              acordo com quantidade de caracteres escolhidas.
+            </p>
           </div>
         </a>
 
@@ -365,49 +454,212 @@
           <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
                       md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
                       scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">
-            <img src="img/CalculadoraIMC.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 5">
+            <img src="img/CalculadoraIMC.png"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
+              alt="Projeto 5">
             <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
               Calculadora de IMC
             </h3>
             <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300 mb-4">
-              Calculadora de IMC, informe seu peso e altura e ela informará a classificação. Utilizando HTML, CSS, JavaScript, Git e GitHub.
+              Calculadora de IMC, informe seu peso e altura e ela informará a classificação. Utilizando HTML, CSS,
+              JavaScript, Git e GitHub.
             </p>
           </div>
         </a>
 
-        <a href="https://maycon363.github.io/iphone13-clone/" target="_blank" class="block">          
+        <a href="https://maycon363.github.io/iphone13-clone/" target="_blank" class="block">
           <div class="bg-slate-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-300 
             md:hover:scale-[1.03] md:hover:shadow-cyan-500/20 
-            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">     
-              <img src="img/SiteIphone13pro.png" class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110" alt="Projeto 6">
-              <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">Site Clone do iphone13</h3>
-              <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
-                Site clone do iphone13 incompleto. Na parte do celulares você pode escolher a cor para o iphone13. Utilizando HTML, CSS, JavaScript, Git e GitHub.
-              </p>
+            scale-[1.03] shadow-cyan-500/20 md:scale-100 md:shadow-lg">
+            <img src="img/SiteIphone13pro.png"
+              class="rounded mb-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
+              alt="Projeto 6">
+            <h3 class="text-2xl font-semibold mb-3 text-gray-100 hover:text-cyan-400 transition-colors duration-300">
+              Site Clone do iphone13</h3>
+            <p class="text-gray-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+              Site clone do iphone13 incompleto. Na parte do celulares você pode escolher a cor para o iphone13.
+              Utilizando HTML, CSS, JavaScript, Git e GitHub.
+            </p>
           </div>
         </a>
       </div>
-    </section>    
+    </section>
 
+    <section id="mensagem" class="p-10 max-w-7xl mx-auto mt-10 rounded-xl shadow-lg bg-gray-900 fade-in">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-6 text-center">Envie uma Mensagem</h2>
+      <form id="formContato" class="max-w-xl mx-auto flex flex-col gap-6" novalidate>
+        <label for="nome" class="flex flex-col text-gray-200">
+          Nome Completo
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required
+            class="mt-2 p-3 rounded-md bg-gray-800 text-white border border-transparent focus:outline-none focus:border-cyan-400"
+            autocomplete="name" />
+          <span class="mt-1 text-red-500 hidden" id="erroNome">Por favor, insira um nome válido (mínimo 3
+            caracteres).</span>
+        </label>
 
-    
-    <footer class="bg-slate-800 text-center text-sm py-4 mt-10 text-slate-300">
-      &copy; 2025 Maycon Borges. Todos os direitos reservados.
-    </footer>
+        <label for="email" class="flex flex-col text-gray-200">
+          E-mail
+          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required
+            class="mt-2 p-3 rounded-md bg-gray-800 text-white border border-transparent focus:outline-none focus:border-cyan-400"
+            autocomplete="email" />
+          <span class="mt-1 text-red-500 hidden" id="erroEmail">Por favor, insira um e-mail válido.</span>
+        </label>
 
-    <script>
-      function mostrarMensagem() {
-        Swal.fire({
-          title: 'Projeto em desenvolvimento 🚀',
-          text: 'Esse projeto ainda está sendo desenvolvido. Em breve estará disponível!',
-          icon: 'info',
-          confirmButtonText: 'Fechar',
-          confirmButtonColor: '#06b6d4',
-          customClass: {
-            popup: 'max-w-sm md:max-w-md lg:max-w-lg'
-          }
-        })
+        <label for="telefone" class="flex flex-col text-gray-200">
+          Telefone
+          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required
+            class="mt-2 p-3 rounded-md bg-gray-800 text-white border border-transparent focus:outline-none focus:border-cyan-400"
+            pattern="\(\d{2}\) \d{5}-\d{4}" autocomplete="tel" />
+          <span class="mt-1 text-red-500 hidden" id="erroTelefone">Por favor, insira um telefone válido no formato (00)
+            00000-0000.</span>
+        </label>
+
+        <label for="mensagem" class="flex flex-col text-gray-200">
+          Mensagem
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui" required
+            class="mt-2 p-3 rounded-md bg-gray-800 text-white border border-transparent focus:outline-none focus:border-cyan-400"></textarea>
+          <span class="mt-1 text-red-500 hidden" id="erroMensagem">Por favor, escreva uma mensagem com pelo menos 10
+            caracteres.</span>
+        </label>
+
+        <button type="submit"
+          class="bg-cyan-500 hover:bg-cyan-600 transition-colors rounded-md py-3 text-white font-semibold shadow-md">
+          Enviar Mensagem
+        </button>
+      </form>
+    </section>
+    <button id="topo"
+      class="fixed bottom-6 right-6 bg-cyan-500 hover:bg-cyan-600 text-white p-3 rounded-full shadow-lg z-50 hidden">
+      ↑
+    </button>
+  </main>
+
+  <footer class="bg-slate-800 text-gray-400 text-center p-6 mt-12 shadow-inner">
+    <p>© 2025 Maycon Borges - Desenvolvedor Frontend</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("eqvV30afMyq0hSL0E"); 
+  </script>
+
+  <script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark');
+    }
+  </script>
+
+  <script>
+    const form = document.getElementById('formContato');
+    const nomeInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const telefoneInput = document.getElementById('telefone');
+    const mensagemInput = document.getElementById('mensagem');
+
+    const erroNome = document.getElementById('erroNome');
+    const erroEmail = document.getElementById('erroEmail');
+    const erroTelefone = document.getElementById('erroTelefone');
+    const erroMensagem = document.getElementById('erroMensagem');
+
+    const btnTopo = document.getElementById('topo');
+    window.addEventListener('scroll', () => {
+      btnTopo.classList.toggle('hidden', window.scrollY < 300);
+    });
+    btnTopo.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function showCustomAlert(message, type = 'success') {
+      const alert = document.createElement('div');
+      alert.textContent = message;
+      alert.className = `alert-custom ${type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`;
+      document.body.appendChild(alert);
+      setTimeout(() => alert.remove(), 3000);
+    }
+
+    const validarNome = () => {
+      const nome = nomeInput.value.trim();
+      if (nome.length < 3) {
+        erroNome.classList.remove('hidden');
+        return false;
+      } else {
+        erroNome.classList.add('hidden');
+        return true;
       }
-    </script>
-  </body>
+    };
+
+    const validarEmail = () => {
+      const email = emailInput.value.trim();
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regexEmail.test(email)) {
+        erroEmail.classList.remove('hidden');
+        return false;
+      } else {
+        erroEmail.classList.add('hidden');
+        return true;
+      }
+    };
+
+    const validarTelefone = () => {
+      const telefone = telefoneInput.value.trim();
+      const regexTelefone = /^\(?\d{2}\)?[\s-]?\d{5}-?\d{4}$/;
+      if (!regexTelefone.test(telefone)) {
+        erroTelefone.classList.remove('hidden');
+        return false;
+      } else {
+        erroTelefone.classList.add('hidden');
+        return true;
+      }
+    };
+
+    const validarMensagem = () => {
+      const mensagem = mensagemInput.value.trim();
+      if (mensagem.length < 10) {
+        erroMensagem.classList.remove('hidden');
+        return false;
+      } else {
+        erroMensagem.classList.add('hidden');
+        return true;
+      }
+    };
+
+    nomeInput.addEventListener('input', validarNome);
+    emailInput.addEventListener('input', validarEmail);
+    telefoneInput.addEventListener('input', validarTelefone);
+    mensagemInput.addEventListener('input', validarMensagem);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nomeValido = validarNome();
+      const emailValido = validarEmail();
+      const telefoneValido = validarTelefone();
+      const mensagemValida = validarMensagem();
+
+      if (nomeValido && emailValido && telefoneValido && mensagemValida) {
+        const templateParams = {
+          nome: nomeInput.value,
+          email: emailInput.value,
+          telefone: telefoneInput.value,
+          mensagem: mensagemInput.value,
+          time: new Date().toLocaleString()
+        };
+
+        emailjs.send("service_txj8coe", "template_4y3asdu", templateParams)
+          .then(() => {
+            showCustomAlert("Mensagem enviada com sucesso!");
+            form.reset();
+          })
+          .catch((error) => {
+            console.error('Erro ao enviar e-mail:', error);
+            showCustomAlert("Erro ao enviar a mensagem. Tente novamente mais tarde.", "error");
+          });
+
+      } else {
+        showCustomAlert("Por favor, corrija os erros no formulário.", "error");
+      }
+    });
+  </script>
+</body>
+
 </html>
